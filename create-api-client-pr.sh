@@ -1,4 +1,6 @@
-curl -O -H "Authorization: token ${GITHUB_TOKEN}" https://raw.githubusercontent.com/emgniddikur/OpenAPI-api/main/swagger.yml
+#!/bin/bash
+
+curl -O -H "Authorization: token ${GITHUB_TOKEN}" https://raw.githubusercontent.com/emgniddikur/OpenAPI-api/develop/swagger.yml
 docker run --rm -v "${PWD}:/local" \
   openapitools/openapi-generator-cli generate \
   -i /local/swagger.yml \
@@ -11,7 +13,7 @@ cd ~/project
 git add -N .
 
 if [ "`git diff --name-only`" != "" ]; then
-  git checkout -b openapi-generate
+  git checkout -b generate-api-client
 
   git add .
 
