@@ -1,8 +1,18 @@
 version: 2.1
 
 jobs:
-  build:
+  create-api-client-pr:
     machine: true
     steps:
       - checkout
       - run: sh create-api-client-pr.sh
+
+workflows:
+  version: 2
+  create-api-client-pr:
+    jobs:
+      - create-api-client-pr:
+          filters:
+            branches:
+              only:
+                - develop
