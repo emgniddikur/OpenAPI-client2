@@ -1,0 +1,12 @@
+version: 2.1
+
+jobs:
+  build:
+    machine: true
+    steps:
+      - run: echo build
+  create-api-client-pr:
+    machine: true
+    steps:
+      - checkout
+      - run: sh create-api-client-pr.sh
