@@ -37,6 +37,12 @@ export interface Pet {
      * @memberof Pet
      */
     tag?: string;
+    /**
+     * 
+     * @type {number}
+     * @memberof Pet
+     */
+    price?: number;
 }
 
 export function PetFromJSON(json: any): Pet {
@@ -52,6 +58,7 @@ export function PetFromJSONTyped(json: any, ignoreDiscriminator: boolean): Pet {
         'id': json['id'],
         'name': json['name'],
         'tag': !exists(json, 'tag') ? undefined : json['tag'],
+        'price': !exists(json, 'price') ? undefined : json['price'],
     };
 }
 
@@ -67,6 +74,7 @@ export function PetToJSON(value?: Pet | null): any {
         'id': value.id,
         'name': value.name,
         'tag': value.tag,
+        'price': value.price,
     };
 }
 

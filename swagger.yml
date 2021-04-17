@@ -94,6 +94,8 @@ components:
           type: string
         tag:
           type: string
+        price:
+          type: number
     Pets:
       type: array
       items:
